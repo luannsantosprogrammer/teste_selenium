@@ -10,8 +10,9 @@ def search_google():
     options.add_argument("--headless")  # Executar em modo invisível (opcional)
     options.add_argument("--no-sandbox")
     options.add_argument("--disable-dev-shm-usage")
+    service  = Service(ChromeDriverManager().install())
 
-    driver = webdriver.Chrome(options=options)  # Substitua por webdriver.Firefox() se estiver usando Firefox
+    driver = webdriver.Chrome(service=service,options=options)  # Substitua por webdriver.Firefox() se estiver usando Firefox
     driver.get("https://estoque.brisanet.net.br/#/estoque/itens/item/liste")
 
     # Encontrar o campo de pesquisa e realizar a busca
