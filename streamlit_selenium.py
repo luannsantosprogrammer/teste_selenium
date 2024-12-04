@@ -2,8 +2,6 @@ import streamlit as st
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
 import time
 
 def search_google():
@@ -12,9 +10,9 @@ def search_google():
     options.add_argument("--headless")  # Executar em modo invisível (opcional)
     options.add_argument("--no-sandbox")
     options.add_argument("--disable-dev-shm-usage")
-    service  = Service(ChromeDriverManager().install())
+    
 
-    driver = webdriver.Chrome(service=service,options=options)  # Substitua por webdriver.Firefox() se estiver usando Firefox
+    driver = webdriver.Chrome(options=options)  # Substitua por webdriver.Firefox() se estiver usando Firefox
     driver.get("https://estoque.brisanet.net.br/#/estoque/itens/item/liste")
 
     # Encontrar o campo de pesquisa e realizar a busca
